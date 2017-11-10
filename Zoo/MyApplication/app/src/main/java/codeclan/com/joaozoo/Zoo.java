@@ -2,7 +2,9 @@ package codeclan.com.joaozoo;
 
 import java.util.ArrayList;
 
+import codeclan.com.joaozoo.models.Animals;
 import codeclan.com.joaozoo.models.Enclosures;
+import codeclan.com.joaozoo.models.Lions;
 
 /**
  * Created by user on 10/11/2017.
@@ -10,10 +12,13 @@ import codeclan.com.joaozoo.models.Enclosures;
 
 public class Zoo {
     private String name;
+     private double funds;
     private ArrayList<Enclosures> enclosures;
 
-    public Zoo(String name){
+
+    public Zoo(String name, double funds){
         this.name = name;
+        this.funds = funds;
         this.enclosures= new ArrayList();
 
     }
@@ -26,4 +31,51 @@ public class Zoo {
         this.name= newName;
 
     }
+
+    public double getFunds(){
+        return this.funds;
+    }
+
+    public void setFunds(double newfunds) {
+        this.funds = newfunds;
+    }
+
+
+    public int getNumberOfEnclosures() {
+         return this.enclosures.size();
+    }
+
+    public void addEnclosure(Enclosures enclosure) {
+        this.enclosures.add(enclosure);
+    }
+
+    public void removeEnclosure(Enclosures enclosure) {
+        this.enclosures.remove(enclosure);
+    }
+
+    public int calculateTotalAnimals() {
+         int total = 0;
+        for(Enclosures enclosure : enclosures){
+           total += enclosure.getNumberOfAnimalsInEnclosure();
+        }
+        return total;
+    }
+
+    public void sellAnimal(Animals animal) {
+        for (Enclosures enclosure : enclosures) {
+            if (enclosure.constainAnimal(animal)) {
+                this.funds += animal.getPrice();
+                enclosure.removeAnimalFromEnclosure(animal);
+            }
+        }
+    }
+
+    public double calculateTotalprofit() {
+        double profit = 0;
+        for (Enclosures enclosure : enclosures) {
+            profit += enclosure.getTotalPriceOfAnimals();
+        }
+        return profit;
+    }
+
 }

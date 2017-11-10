@@ -3,6 +3,8 @@ package codeclan.com.joaozoo;
 import org.junit.Before;
 import org.junit.Test;
 
+import java.util.ArrayList;
+
 import codeclan.com.joaozoo.models.Enclosures;
 import codeclan.com.joaozoo.models.Lions;
 
@@ -83,6 +85,25 @@ public class EnclosuresTest {
         enclosure.addAnimalToEnclosure(lion2);
          double actual = enclosure.getTotalPriceOfAnimals();
         assertEquals(8000.0, actual);
+    }
+
+    @Test
+
+    public void canfindAnimal(){
+        enclosure.addAnimalToEnclosure(lion1);
+
+   boolean actual= enclosure.constainAnimal(lion1);
+        assertEquals(true, actual);
+
+    }
+    @Test
+
+    public void cannotfindAnimal(){
+
+
+        boolean actual= enclosure.constainAnimal(lion1);
+        assertEquals(false, actual);
+
     }
 
 }

@@ -6,16 +6,9 @@ import java.util.ArrayList;
  * Created by user on 10/11/2017.
  */
 
-//Enclosures<Lion> lionEnclosures
-
-
-    //Enclosure<Pig> lion
 
 
 
-    //Enclosures<Animals> anyAnimals
-    //anyAnimlas.add(pig)
-    //anyAnimlas.add(lion)
 
 public class Enclosures <T extends Animals> {
     private String nameOfEnclosure;
@@ -35,6 +28,10 @@ public class Enclosures <T extends Animals> {
 
     }
 
+    public boolean constainAnimal(Animals animal){
+          return this.animals.contains(animal);
+    }
+
     public int getNumberOfAnimalsInEnclosure() {
         return this.animals.size();
     }
@@ -49,7 +46,7 @@ public class Enclosures <T extends Animals> {
 
     public double getTotalPriceOfAnimals() {
         double total = 0;
-        for (Animals animal : animals) {
+        for (T animal : animals) {
             total += animal.getPrice();
         }
         return total;
