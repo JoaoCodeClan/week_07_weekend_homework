@@ -6,7 +6,18 @@ import java.util.ArrayList;
  * Created by user on 10/11/2017.
  */
 
-public class Enclosures <T> {
+//Enclosures<Lion> lionEnclosures
+
+
+    //Enclosure<Pig> lion
+
+
+
+    //Enclosures<Animals> anyAnimals
+    //anyAnimlas.add(pig)
+    //anyAnimlas.add(lion)
+
+public class Enclosures <T extends Animals> {
     private String nameOfEnclosure;
     private ArrayList<T>animals;
 
