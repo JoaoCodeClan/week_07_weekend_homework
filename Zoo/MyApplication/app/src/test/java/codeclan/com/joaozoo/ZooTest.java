@@ -81,7 +81,7 @@ public class ZooTest {
      double actual= eden.getTicketPrice();
      assertEquals(12.0, actual);
  }
- 
+
     @Test
      public void testZooStartsEmpty(){
         int actual = eden.getNumberOfEnclosures();

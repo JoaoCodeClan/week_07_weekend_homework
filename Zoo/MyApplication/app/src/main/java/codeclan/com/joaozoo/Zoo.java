@@ -1,10 +1,12 @@
 package codeclan.com.joaozoo;
 
+import java.lang.reflect.Array;
 import java.util.ArrayList;
 
 import codeclan.com.joaozoo.models.Animals;
 import codeclan.com.joaozoo.models.Enclosures;
 import codeclan.com.joaozoo.models.Lions;
+import codeclan.com.joaozoo.models.Visitors;
 
 /**
  * Created by user on 10/11/2017.
@@ -12,10 +14,10 @@ import codeclan.com.joaozoo.models.Lions;
 
 public class Zoo {
     private String name;
-     private double funds;
+    private double funds;
     private double ticketPrice;
     private ArrayList<Enclosures> enclosures;
-
+    private ArrayList<Visitors> clients;
 
     public Zoo(String name, double funds, double ticketPrice){
         this.name = name;
