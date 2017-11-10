@@ -5,6 +5,7 @@ import org.junit.Test;
 
 import codeclan.com.joaozoo.models.Enclosures;
 import codeclan.com.joaozoo.models.Lions;
+import codeclan.com.joaozoo.models.Visitors;
 import codeclan.com.joaozoo.models.Zebras;
 
 import static junit.framework.Assert.assertEquals;
@@ -25,6 +26,9 @@ public class ZooTest {
     Zebras zebra1;
     Zebras zebra2;
 
+    Visitors person1;
+    Visitors person2;
+
 
 
     @Before
@@ -39,6 +43,9 @@ public class ZooTest {
 
         zebra1 = new Zebras("Stripy", 1000.0);
         zebra2 = new Zebras("B&W", 1000.0);
+
+        person1= new Visitors("Mario", 50.0);
+        person2= new Visitors("Luigi", 100.0);
 
 
     }
@@ -153,6 +160,36 @@ public class ZooTest {
 
     }
 
+
+    @Test
+    public void clientsStartsEmpty(){
+        int actual = eden.clientCount();
+        assertEquals(0, actual);
+
+    }
+
+    @Test
+
+    public void canAddPersonsToClients(){
+        eden.addClient(person1);
+        int actual = eden.clientCount();
+        assertEquals(1, actual);
+        double actual2= eden.getFunds();
+        assertEquals(10.0, actual2);
+        double actual3= person1.getMoney();
+        assertEquals(40.0, actual3);
+    }
+
+    @Test
+    public void canRemovePersonFromClients(){
+        eden.addClient(person1);
+        eden.addClient(person2);
+        int actual = eden.clientCount();
+        assertEquals(2, actual);
+        eden.removeClient(person1);
+        int actual2 =  eden.clientCount();
+        assertEquals(1, actual2);
+    }
 
 
 

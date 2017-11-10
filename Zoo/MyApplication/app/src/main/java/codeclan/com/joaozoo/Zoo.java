@@ -19,31 +19,33 @@ public class Zoo {
     private ArrayList<Enclosures> enclosures;
     private ArrayList<Visitors> clients;
 
-    public Zoo(String name, double funds, double ticketPrice){
+    public Zoo(String name, double funds, double ticketPrice) {
         this.name = name;
         this.funds = funds;
         this.ticketPrice = ticketPrice;
-        this.enclosures= new ArrayList();
+        this.enclosures = new ArrayList();
+        this.clients = new ArrayList();
 
     }
 
-    public String getName(){
+    public String getName() {
         return this.name;
     }
 
-    public void setName(String newName){
-        this.name= newName;
+    public void setName(String newName) {
+        this.name = newName;
 
     }
 
-    public double getFunds(){
+    public double getFunds() {
         return this.funds;
     }
 
     public void setFunds(double newfunds) {
         this.funds = newfunds;
     }
-    public double getTicketPrice(){
+
+    public double getTicketPrice() {
         return this.ticketPrice;
     }
 
@@ -53,7 +55,7 @@ public class Zoo {
 
 
     public int getNumberOfEnclosures() {
-         return this.enclosures.size();
+        return this.enclosures.size();
     }
 
     public void addEnclosure(Enclosures enclosure) {
@@ -65,9 +67,9 @@ public class Zoo {
     }
 
     public int calculateTotalAnimals() {
-         int total = 0;
-        for(Enclosures enclosure : enclosures){
-           total += enclosure.getNumberOfAnimalsInEnclosure();
+        int total = 0;
+        for (Enclosures enclosure : enclosures) {
+            total += enclosure.getNumberOfAnimalsInEnclosure();
         }
         return total;
     }
@@ -89,4 +91,20 @@ public class Zoo {
         return profit;
     }
 
+    public int clientCount(){
+        return this.clients.size();
+    }
+
+    public void addClient(Visitors person){
+        this.clients.add(person);
+       double beforemoney = person.getMoney();
+
+        double aftermoney = beforemoney- this.ticketPrice;
+        this.funds += ticketPrice;
+        person.setMoney(aftermoney);
+    }
+
+    public void removeClient(Visitors person) {
+        this.clients.remove(person);
+    }
 }

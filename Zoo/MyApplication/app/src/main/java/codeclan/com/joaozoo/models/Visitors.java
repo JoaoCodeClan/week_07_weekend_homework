@@ -32,4 +32,6 @@ public class Visitors {
     public void setMoney(double newMoney){
         this.money = newMoney;
     }
+
+
 }
