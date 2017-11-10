@@ -7,7 +7,7 @@ package codeclan.com.joaozoo.models;
 public class Zebras extends Animals {
      private String name;
 
-    public Zebras(String name, int price){
+    public Zebras(String name, double price){
         super(price);
         this.name = name;
     }

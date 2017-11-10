@@ -8,7 +8,7 @@ public class Lions extends Animals {
 
     private String name;
 
-    public Lions(String name, int price){
+    public Lions(String name, double price){
         super(price);
         this.name = name;
     }

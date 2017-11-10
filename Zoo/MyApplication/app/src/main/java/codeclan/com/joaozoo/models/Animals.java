@@ -5,17 +5,17 @@ package codeclan.com.joaozoo.models;
  */
 
 public abstract class Animals {
-     private int price;
+     private double price;
 
-    public Animals(int price){
+    public Animals(double price){
         this.price = price;
     }
 
-    public int  getPrice(){
+    public double getPrice(){
      return this.price;
     }
 
-    public void setprice(int newPrice){
+    public void setprice(double newPrice){
        this.price = newPrice;
     }
 }
