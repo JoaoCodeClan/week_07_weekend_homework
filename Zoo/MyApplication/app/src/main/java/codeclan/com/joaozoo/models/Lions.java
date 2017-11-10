@@ -6,7 +6,7 @@ package codeclan.com.joaozoo.models;
 
 public class Lions extends Animals {
 
-    String name;
+    private String name;
 
     public Lions(String name, int price){
         super(price);
