@@ -13,12 +13,14 @@ import codeclan.com.joaozoo.models.Lions;
 public class Zoo {
     private String name;
      private double funds;
+    private double ticketPrice;
     private ArrayList<Enclosures> enclosures;
 
 
-    public Zoo(String name, double funds){
+    public Zoo(String name, double funds, double ticketPrice){
         this.name = name;
         this.funds = funds;
+        this.ticketPrice = ticketPrice;
         this.enclosures= new ArrayList();
 
     }
@@ -38,6 +40,13 @@ public class Zoo {
 
     public void setFunds(double newfunds) {
         this.funds = newfunds;
+    }
+    public double getTicketPrice(){
+        return this.ticketPrice;
+    }
+
+    public void setTicket(double newPrice) {
+        this.ticketPrice = newPrice;
     }
 
 

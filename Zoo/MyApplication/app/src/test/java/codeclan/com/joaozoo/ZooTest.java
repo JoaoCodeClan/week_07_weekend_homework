@@ -29,7 +29,7 @@ public class ZooTest {
 
     @Before
     public void before(){
-        eden= new Zoo("Eden", 0);
+        eden= new Zoo("Eden", 0.0, 10.0);
         enclosure1= new Enclosures("LionsDen");
         enclosure2 = new Enclosures("StripTheStripe");
         lion1 = new Lions("Albino", 5000.0);
@@ -70,7 +70,18 @@ public class ZooTest {
         double actual = eden.getFunds();
         assertEquals(100.0, actual);
     }
+ @Test
+ public void canGetTicketPrice(){
+     assertEquals(10.0, eden.getTicketPrice());
+ }
 
+ @Test
+ public void canSetNewTicketprice(){
+     eden.setTicket(12.0);
+     double actual= eden.getTicketPrice();
+     assertEquals(12.0, actual);
+ }
+ 
     @Test
      public void testZooStartsEmpty(){
         int actual = eden.getNumberOfEnclosures();
